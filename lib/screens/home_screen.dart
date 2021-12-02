@@ -7,15 +7,25 @@ import 'package:product_app/services/services.dart';
 import 'package:product_app/widgets/product_card.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final productService = Provider.of<ProductService>(context);
+
+    final authService = Provider.of<AuthServices>(context);
 
     if (productService.isLoading) return LoadingScreen();
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Productos'),
+        title: const Text('Productos'),
+        leading: IconButton(
+            icon: Icon(Icons.logout_outlined),
+            onPressed: () {
+              authService.logout();
+              Navigator.pushReplacementNamed(context, 'login');
+            }),
       ),
       body: ListView.builder(
           itemCount: productService.product.length,

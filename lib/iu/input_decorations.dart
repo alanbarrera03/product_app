@@ -6,13 +6,13 @@ class InputDecorations {
       required String labelText,
       IconData? prefixIcon}) {
     return InputDecoration(
-        enabledBorder: UnderlineInputBorder(
+        enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.deepPurple)),
-        focusedBorder: UnderlineInputBorder(
+        focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.deepPurple, width: 2)),
         hintText: hintText,
         labelText: labelText,
-        labelStyle: TextStyle(color: Colors.grey),
+        labelStyle: const TextStyle(color: Colors.grey),
         prefixIcon: prefixIcon != null
             ? Icon(
                 prefixIcon,
